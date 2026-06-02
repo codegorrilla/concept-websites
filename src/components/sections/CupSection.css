@@ -1,0 +1,196 @@
+.cup-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #1a0d06 0%, var(--brand-black) 100%);
+  padding: var(--space-xl) 0;
+  overflow: hidden;
+}
+
+.cup-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 60%, rgba(201,146,42,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cup-inner {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  min-height: 80vh;
+}
+
+/* Image column */
+.cup-image-wrapper {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow:
+    0 60px 120px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(201,146,42,0.12),
+    inset 0 0 60px rgba(201,146,42,0.03);
+}
+
+.cup-photo {
+  width: 100%;
+  height: 65vh;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  will-change: transform;
+  filter: brightness(1.05) saturate(1.1) contrast(1.05);
+}
+
+/* Steam */
+.steam-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  pointer-events: none;
+}
+
+.steam-wisp {
+  position: absolute;
+  background: radial-gradient(ellipse, rgba(232,221,208,0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(8px);
+  will-change: transform, opacity;
+}
+
+.cup-label-text {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  text-align: right;
+  background: var(--earth-80);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--gold-20);
+  will-change: transform, opacity;
+}
+
+.cup-label-year { opacity: 0.5; }
+
+/* Copy column */
+.cup-act-label { margin-bottom: 1.2rem; }
+
+.cup-heading {
+  color: var(--brand-mist);
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+.cup-body {
+  margin-bottom: 2.5rem;
+  max-width: 460px;
+}
+
+/* Flavor tags */
+.cup-flavors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.flavor-tag {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--gold-20);
+  border-radius: var(--radius-pill);
+  color: var(--brand-gold);
+  background: var(--gold-10);
+  transition: background 0.3s, border-color 0.3s;
+  cursor: default;
+  will-change: transform;
+}
+.flavor-tag:hover {
+  background: var(--gold-20);
+  border-color: var(--brand-gold);
+}
+
+/* Brew guide toggle */
+.brew-guide-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 420px;
+  padding: 0.9rem 1.4rem;
+  border: 1px solid var(--gold-20);
+  border-radius: var(--radius-md);
+  color: var(--brand-mist);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: border-color 0.3s, background 0.3s;
+  background: transparent;
+  margin-bottom: 0;
+}
+.brew-guide-toggle:hover,
+.brew-guide-toggle.open {
+  border-color: var(--brand-gold);
+  background: var(--gold-10);
+  color: var(--brand-gold);
+}
+
+.brew-toggle-icon {
+  font-size: 0.7rem;
+  transition: transform 0.3s;
+}
+.brew-guide-toggle.open .brew-toggle-icon {
+  color: var(--brand-gold);
+}
+
+/* Brew guide panel */
+.brew-guide-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease-out);
+  max-width: 420px;
+}
+.brew-guide-panel.open {
+  max-height: 500px;
+}
+
+.brew-row {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.brew-row:last-child { border-bottom: none; }
+
+.brew-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+.brew-label { margin-bottom: 0.2rem; }
+.brew-value { color: var(--brand-mist); font-size: 1.1rem; margin-bottom: 0.2rem; }
+.brew-note { opacity: 0.55; font-size: 0.78rem; }
+
+@media (max-width: 1024px) {
+  .cup-inner { grid-template-columns: 1fr; gap: 3rem; padding: 0 2rem; }
+  .cup-photo { height: 45vh; }
+}
+@media (max-width: 768px) {
+  .cup-inner { padding: 0 1.5rem; }
+  .cup-section { padding: var(--space-lg) 0; }
+}

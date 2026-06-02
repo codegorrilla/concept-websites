@@ -1,0 +1,145 @@
+.process-section {
+  position: relative;
+  min-height: 120vh;
+  overflow: hidden;
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+.process-bg-transition {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #0a160a 0%, #130906 100%);
+  transition: background 0.5s;
+  z-index: 0;
+}
+
+/* Factory image background */
+.process-factory-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.process-factory-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.15;
+  filter: sepia(0.3) saturate(0.8);
+  will-change: transform;
+}
+
+.process-factory-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(13,9,6,0.95) 0%,
+    rgba(13,9,6,0.6) 50%,
+    rgba(13,9,6,0.8) 100%
+  );
+}
+
+.process-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.process-act-label { margin-bottom: 1rem; }
+
+.process-heading {
+  color: var(--brand-mist);
+  margin-bottom: 0.8rem;
+}
+
+.process-subheading {
+  color: var(--brand-gold);
+}
+
+/* Steps container */
+.process-steps-container {
+  position: relative;
+  display: flex;
+  gap: 3rem;
+}
+
+.process-svg-connector {
+  position: absolute;
+  left: 28px;
+  top: 30px;
+  width: 4px;
+  height: calc(100% - 60px);
+  flex-shrink: 0;
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  padding-left: 5rem;
+  flex: 1;
+}
+
+.process-step {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  will-change: transform, opacity;
+}
+
+.step-num-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  margin-left: -3.5rem;
+  position: relative;
+}
+
+.step-icon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.step-num {
+  font-size: 0.65rem;
+  opacity: 0.5;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  margin-bottom: 0.4rem;
+  font-size: 1.5rem;
+}
+
+.step-tagline {
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  opacity: 0.7;
+}
+
+.step-desc {
+  max-width: 500px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .process-inner { padding: 0 1.5rem; }
+  .process-steps { padding-left: 3rem; }
+  .process-steps-container { gap: 1rem; }
+  .step-num-col { margin-left: -2rem; }
+  .step-icon { font-size: 1.4rem; }
+}

@@ -1,0 +1,83 @@
+/* ============================================================
+   typography.css — Type System
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.display-text {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+
+.heading-primary {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+
+.heading-secondary {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.heading-tertiary {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.tagline {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: var(--text-large);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: var(--brand-mist-dark);
+}
+
+.body-text {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--brand-mist-dark);
+}
+
+.caption {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--brand-mist-dark);
+  opacity: 0.7;
+}
+
+/* Italic display accent */
+.italic-accent {
+  font-style: italic;
+  color: var(--brand-gold);
+}
+
+/* Character split spans — for GSAP SplitText-style animations */
+.char-wrap {
+  display: inline-block;
+  overflow: hidden;
+}
+.char {
+  display: inline-block;
+  will-change: transform, opacity;
+}

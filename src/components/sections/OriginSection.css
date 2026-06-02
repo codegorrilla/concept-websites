@@ -1,0 +1,148 @@
+.origin-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--brand-black) 0%, #1a0f06 40%, #0e1a0e 100%);
+  padding: var(--space-xl) 0;
+  overflow: hidden;
+}
+
+.origin-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(59,107,58,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.origin-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.origin-act-label {
+  margin-bottom: 1.2rem;
+}
+
+.origin-heading {
+  color: var(--brand-mist);
+  margin-bottom: 0.8rem;
+}
+
+.origin-subheading {
+  margin-bottom: 1.5rem;
+  color: var(--brand-gold);
+}
+
+.origin-body {
+  margin-bottom: 3rem;
+  max-width: 480px;
+}
+
+/* Region list */
+.origin-regions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.origin-region-label {
+  border-left: 1px solid var(--gold-20);
+  padding-left: 1.5rem;
+  transition: border-color 0.3s;
+  will-change: transform, opacity;
+}
+
+.origin-region-label:hover {
+  border-color: var(--brand-gold);
+}
+
+.origin-region-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.origin-region-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-gold);
+  flex-shrink: 0;
+}
+
+.origin-region-name {
+  color: var(--brand-mist);
+  font-size: 1.2rem;
+}
+
+.origin-region-subtitle {
+  opacity: 0.6;
+  font-size: 0.7rem;
+}
+
+.origin-region-desc {
+  font-size: 0.9rem;
+  margin-bottom: 0.7rem;
+  opacity: 0.75;
+}
+
+.origin-region-stats {
+  display: flex;
+  gap: 1.2rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--brand-mist-dark);
+  opacity: 0.6;
+  flex-wrap: wrap;
+}
+
+.origin-region-chars {
+  color: var(--brand-gold);
+  opacity: 0.8;
+}
+
+/* Map column */
+.origin-map-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.india-map-container {
+  width: 100%;
+  max-width: 380px;
+  will-change: transform;
+}
+
+.india-map-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 40px rgba(59,107,58,0.2));
+}
+
+/* Region dot animation */
+.region-dot {
+  will-change: transform, opacity;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .origin-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0 2rem;
+  }
+  .origin-map-col { order: -1; }
+  .india-map-container { max-width: 280px; }
+}
+
+@media (max-width: 768px) {
+  .origin-section { padding: var(--space-lg) 0; }
+  .origin-inner { padding: 0 1.5rem; }
+}

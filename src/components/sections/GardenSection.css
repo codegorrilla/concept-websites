@@ -1,0 +1,99 @@
+.garden-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  background: var(--brand-black);
+}
+
+.garden-bg {
+  position: absolute;
+  inset: -15% 0;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  filter: brightness(0.5) saturate(1.1);
+}
+
+.garden-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(13,9,6,0.97) 0%,
+    rgba(13,9,6,0.6) 40%,
+    rgba(13,9,6,0.2) 70%,
+    rgba(13,9,6,0.4) 100%
+  );
+}
+
+/* Floating leaves */
+.garden-leaf {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+  filter: drop-shadow(0 4px 12px rgba(59,107,58,0.4));
+}
+
+.garden-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-2xl) 3rem var(--space-xl);
+  width: 100%;
+}
+
+.garden-act-label {
+  margin-bottom: 1.2rem;
+}
+
+.garden-heading {
+  color: var(--brand-mist);
+  margin-bottom: 2rem;
+  max-width: 700px;
+}
+
+.garden-body-text {
+  max-width: 580px;
+  margin-bottom: 3.5rem;
+}
+
+/* Stats row */
+.garden-stats {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.garden-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  will-change: transform, opacity;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1;
+  /* shimmer applied via animate-shimmer class */
+}
+
+.stat-label {
+  margin-top: 0.3rem;
+}
+
+.stat-desc {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .garden-content { padding: var(--space-xl) 1.5rem var(--space-lg); }
+  .garden-stats { gap: 2.5rem; }
+  .stat-number { font-size: 2.2rem; }
+}
