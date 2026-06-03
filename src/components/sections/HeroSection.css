@@ -1,88 +1,190 @@
-.hero-section {
+/* ═══════════════════════════════════════════════════════════════════════════
+   Hero Section — Standard viewport height layout
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Outer container ── */
+.hero-wrapper {
   position: relative;
-  width: 100%;
   height: 100vh;
   min-height: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
-  background: #2C1A0E; /* fallback while image loads */
+  background: #0d0906;
 }
 
-/* Background image — always rendered, GSAP adds parallax on top */
+/* ── Background photo ── */
 .hero-bg {
   position: absolute;
-  inset: -25% 0;
+  inset: -20% 0;
   background-size: cover;
   background-position: center 40%;
   background-repeat: no-repeat;
   will-change: transform;
-  filter: brightness(0.6) saturate(1.1);
+  filter: brightness(0.82) saturate(2);
+  z-index: 1;
 }
 
-/* CSS overlays — pure CSS, zero JS dependency */
+/* ── Gradient overlays ── */
 .hero-mist-bottom {
   position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 50%;
-  background: linear-gradient(to top, #0D0906 0%, transparent 100%);
+  inset: auto 0 0 0;
+  height: 52%;
+  background: linear-gradient(
+    to top,
+    #0d0906 0%,
+    rgba(13, 9, 6, 0.4) 65%,
+    transparent 100%
+  );
   pointer-events: none;
+  z-index: 2;
 }
 .hero-mist-top {
   position: absolute;
-  left: 0; right: 0; top: 0;
-  height: 30%;
-  background: linear-gradient(to bottom, rgba(13,9,6,0.6) 0%, transparent 100%);
+  inset: 0 0 auto 0;
+  height: 28%;
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 9, 6, 0.48) 0%,
+    transparent 100%
+  );
   pointer-events: none;
+  z-index: 2;
 }
 .hero-vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 45%, transparent 25%, rgba(13,9,6,0.4) 100%);
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    transparent 35%,
+    rgba(13, 9, 6, 0.42) 100%
+  );
   pointer-events: none;
-}
-
-/* Content — NO opacity:0 in CSS. GSAP sets initial state via gsap.set() */
-.hero-content {
-  position: relative;
   z-index: 2;
+}
+
+/* ── Cup Container (Centers static cup at bottom of section) ── */
+.hero-cup-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(340px, 40vw, 580px); /* Scaled up cup */
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.hero-cup-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.hero-cup-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translate(5%, 28%);
+}
+/* ── Steam Container ── */
+.hero-steam-container {
+  position: absolute;
+  bottom: clamp(245px, 28.8vw, 418px); /* Adjusted to match scaled up cup rim */
+  left: 50%;
+  transform: translate(calc(-50% + 20px), 0); /* Offset right to center over shifted cup */
+  width: 180px;
+  height: 140px;
+  z-index: 6; /* In front of cup (z-index 5) and tea bag */
+  pointer-events: none;
+  opacity: 0; /* Managed by GSAP ScrollTrigger */
+  will-change: opacity;
+}
+.hero-steam-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+.hero-steam-wisp {
+  filter: blur(7px);
+  transform-origin: bottom center;
+}
+
+/* ── Falling Tea Leaves Container ── */
+.hero-leaves-container {
+  position: absolute;
+  top: 0;
+  bottom: clamp(245px, 28.8vw, 418px); /* Adjusted to match scaled up cup rim */
+  left: 50%;
+  transform: translate(calc(-50% + 20px), 0); /* Offset right to center over shifted cup */
+  width: 160px;
+  z-index: 4; /* Behind the cup (z-index 5) but above background */
+  pointer-events: none;
+  overflow: visible;
+}
+.hero-leaf-particle {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+}
+
+/* ── Text content ── */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -64%);
+  z-index: 10;
+  pointer-events: none;
   text-align: center;
+  width: 100%;
   padding: 0 2rem;
-  max-width: 1000px;
-  will-change: transform, opacity;
+  max-width: 1100px;
+  will-change: opacity, transform;
 }
 
+/* ── Eyebrow ── */
 .hero-eyebrow {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: var(--brand-gold);
+  opacity: 0.8;
 }
 
+/* ── Brand wordmark ── */
 .brand-wordmark {
   font-family: var(--font-display);
   font-size: var(--text-hero);
   font-weight: 300;
   color: var(--brand-mist);
-  line-height: 1.0;
+  line-height: 1;
   letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.4rem;
   perspective: 400px;
 }
 
-/* SplitText injects these spans — no CSS opacity rule needed */
 .brand-wordmark .char {
   display: inline-block;
 }
 
+/* ── Brand tagline ── */
 .brand-tagline {
   font-family: var(--font-accent);
   font-style: italic;
   font-size: clamp(1rem, 1.8vw, 1.35rem);
-  color: var(--brand-mist-dark);
+  color: rgba(232, 221, 208, 0.75);
   letter-spacing: 0.04em;
-  margin-bottom: 2.5rem;
+  margin: 0 0 2.4rem;
 }
 
+/* ── Divider ── */
 .hero-divider {
   display: flex;
   align-items: center;
@@ -93,10 +195,12 @@
   display: block;
   width: 70px;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--brand-gold-dark));
+}
+.hero-divider-line:first-child {
+  background: linear-gradient(to right, transparent, rgba(201, 146, 42, 0.6));
 }
 .hero-divider-line:last-child {
-  background: linear-gradient(to left, transparent, var(--brand-gold-dark));
+  background: linear-gradient(to left, transparent, rgba(201, 146, 42, 0.6));
 }
 .hero-divider-diamond {
   display: block;
@@ -107,37 +211,80 @@
   flex-shrink: 0;
 }
 
-/* Scroll hint */
+/* ── Scroll hint ── */
 .scroll-hint {
   position: absolute;
   bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 10;
+  pointer-events: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.6rem;
-  color: var(--brand-mist-dark);
-  will-change: transform;
+  color: rgba(232, 221, 208, 0.65);
+  will-change: opacity, transform;
 }
 .scroll-hint-label {
   font-family: var(--font-body);
-  font-size: 0.65rem;
-  letter-spacing: 0.32em;
+  font-size: 0.62rem;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 .scroll-dot-inner {
   animation: scroll-dot-fall 2s ease-in-out infinite;
 }
 @keyframes scroll-dot-fall {
-  0%   { cy: 10; opacity: 1; }
-  80%  { cy: 24; opacity: 0; }
-  100% { cy: 10; opacity: 0; }
+  0% {
+    cy: 10;
+    opacity: 1;
+  }
+  70% {
+    cy: 24;
+    opacity: 0.2;
+  }
+  100% {
+    cy: 10;
+    opacity: 0;
+  }
 }
 
+/* ── Responsive ── */
 @media (max-width: 768px) {
-  .brand-wordmark { font-size: clamp(2.2rem, 9vw, 3.5rem); }
-  .hero-divider-line { width: 40px; }
+  .brand-wordmark {
+    font-size: clamp(1.8rem, 7.5vw, 3rem);
+    letter-spacing: -0.01em;
+  }
+  .hero-divider-line {
+    width: 40px;
+  }
+  .hero-content {
+    transform: translate(-50%, -70%);
+  }
+  .hero-mist-bottom {
+    height: 55%;
+  }
+  .hero-cup-container {
+    width: clamp(310px, 50vw, 390px);
+    bottom: 0;
+  }
+  .hero-cup-image {
+    transform: translate(5%, 12%);
+  }
+  .hero-leaves-container {
+    bottom: clamp(273px, 44vw, 343px); /* Matches mobile cup top edge */
+    transform: translate(calc(-50% + 12px), 0);
+  }
+  .hero-steam-container {
+    bottom: clamp(273px, 44vw, 343px); /* Matches mobile cup top edge */
+    transform: translate(calc(-50% + 12px), 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-dot-inner {
+    animation: none;
+  }
 }
