@@ -93,7 +93,10 @@
   position: absolute;
   bottom: clamp(245px, 28.8vw, 418px); /* Adjusted to match scaled up cup rim */
   left: 50%;
-  transform: translate(calc(-50% + 20px), 0); /* Offset right to center over shifted cup */
+  transform: translate(
+    calc(-50% + 20px),
+    0
+  ); /* Offset right to center over shifted cup */
   width: 180px;
   height: 140px;
   z-index: 6; /* In front of cup (z-index 5) and tea bag */
@@ -118,7 +121,10 @@
   top: 0;
   bottom: clamp(245px, 28.8vw, 418px); /* Adjusted to match scaled up cup rim */
   left: 50%;
-  transform: translate(calc(-50% + 20px), 0); /* Offset right to center over shifted cup */
+  transform: translate(
+    calc(-50% + 20px),
+    0
+  ); /* Offset right to center over shifted cup */
   width: 160px;
   z-index: 4; /* Behind the cup (z-index 5) but above background */
   pointer-events: none;
@@ -160,18 +166,14 @@
 
 /* ── Brand wordmark ── */
 .brand-wordmark {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: var(--text-hero);
-  font-weight: 300;
-  color: var(--brand-mist);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brand-white);
+  line-height: 1.15;
+  letter-spacing: 0.05em;
   margin: 0 0 1.4rem;
-  perspective: 400px;
-}
-
-.brand-wordmark .char {
-  display: inline-block;
 }
 
 /* ── Brand tagline ── */
@@ -255,7 +257,7 @@
 @media (max-width: 768px) {
   .brand-wordmark {
     font-size: clamp(1.8rem, 7.5vw, 3rem);
-    letter-spacing: -0.01em;
+    letter-spacing: 0.05em;
   }
   .hero-divider-line {
     width: 40px;
