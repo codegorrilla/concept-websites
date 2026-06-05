@@ -28,11 +28,11 @@ export default function ProcessSection() {
       duration: 1.2, ease: 'power3.out',
     });
 
-    // Step cards stagger
-    gsap.from('.process-step', {
-      opacity: 0, x: -40, stagger: 0.2,
+    // Step list column entrance
+    gsap.from('.process-steps-col', {
+      opacity: 0, y: 40,
       scrollTrigger: {
-        trigger: '.process-steps', start: 'top 80%', toggleActions: 'play none none reverse',
+        trigger: '.process-steps-col', start: 'top 80%', toggleActions: 'play none none reverse',
       },
       duration: 1, ease: 'power2.out',
     });

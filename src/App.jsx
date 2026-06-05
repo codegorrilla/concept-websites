@@ -6,8 +6,6 @@ import OriginSection from './components/sections/OriginSection';
 import GardenSection from './components/sections/GardenSection';
 import HarvestSection from './components/sections/HarvestSection';
 import ProcessSection from './components/sections/ProcessSection';
-import BlendSection from './components/sections/BlendSection';
-import CupSection from './components/sections/CupSection';
 import CtaSection from './components/sections/CtaSection';
 import './App.css';
 
@@ -25,9 +23,7 @@ export default function App() {
         <GardenSection />  {/* ACT 2 — 0.25–0.40 */}
         <HarvestSection /> {/* ACT 3 — 0.40–0.52 */}
         <ProcessSection /> {/* ACT 4 — 0.52–0.68 */}
-        <BlendSection />   {/* ACT 5 — 0.68–0.82 */}
-        <CupSection />     {/* ACT 6 — 0.82–0.95 */}
-        <CtaSection />     {/* ACT 7 — 0.95–1.00 */}
+        <CtaSection />     {/* ACT 5 — 0.68–1.00 */}
       </main>
     </SmoothScrollLayout>
   );

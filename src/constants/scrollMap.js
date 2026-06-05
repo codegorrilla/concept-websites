@@ -4,12 +4,10 @@
 export const SCROLL_MAP = {
   hero:     { start: 0.00, end: 0.10, label: 'ACT I',    name: 'Hero'    },
   origin:   { start: 0.10, end: 0.25, label: 'ACT II',   name: 'Origin'  },
-  garden:   { start: 0.25, end: 0.40, label: 'ACT III',  name: 'Garden'  },
-  harvest:  { start: 0.40, end: 0.52, label: 'ACT IV',   name: 'Harvest' },
-  process:  { start: 0.52, end: 0.68, label: 'ACT V',    name: 'Process' },
-  blend:    { start: 0.68, end: 0.82, label: 'ACT VI',   name: 'Blend'   },
-  cup:      { start: 0.82, end: 0.95, label: 'ACT VII',  name: 'The Cup' },
-  cta:      { start: 0.95, end: 1.00, label: 'ACT VIII', name: 'Journey' },
+  garden:   { start: 0.25, end: 0.45, label: 'ACT III',  name: 'Garden'  },
+  harvest:  { start: 0.45, end: 0.68, label: 'ACT IV',   name: 'Harvest' },
+  process:  { start: 0.68, end: 0.90, label: 'ACT V',    name: 'Process' },
+  cta:      { start: 0.90, end: 1.00, label: 'ACT VI',   name: 'Journey' },
 };
 
 /**
