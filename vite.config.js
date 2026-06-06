@@ -6,9 +6,11 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
 
-  // Base path for GitHub Pages — site is served at /tea-concept-2/, not /
-  // Without this, all /assets/... paths 404 after deployment.
-  base: '/tea-concept-2/',
+  // Use relative base so built paths work everywhere:
+  //   - VS Code Live Server (opens dist/index.html directly)
+  //   - GitHub Pages (serves from repo subdirectory)
+  //   - npm run preview
+  base: './',
 
   resolve: {
     // Force all packages to share a single React instance.

@@ -2,21 +2,28 @@
  * Resolves a public-folder asset path against Vite's BASE_URL.
  *
  * Why this is needed:
- *   Vite's `base` config option (e.g. '/tea-concept-2/') is injected into
- *   statically-imported files at build time, but NOT into runtime string
- *   literals like `src="/assets/images/foo.jpg"`.
- *   This helper ensures every public-asset reference is correctly prefixed
- *   in both development (base = '/') and production (base = '/tea-concept-2/').
+ *   Vite's `base` config option is injected at build time for statically-
+ *   imported files, but NOT for runtime string literals like `src="/assets/..."`.
+ *   This helper reads `import.meta.env.BASE_URL` (set by Vite at build time)
+ *   so every public-asset reference is correct in all environments:
+ *
+ *   | Environment              | base config | BASE_URL  | result for '/assets/a.jpg'  |
+ *   |--------------------------|-------------|-----------|------------------------------|
+ *   | vite dev server          | './'        | '/'       | '/assets/a.jpg'              |
+ *   | dist via VS Code Live Srv| './'        | './'      | './assets/a.jpg'             |
+ *   | GitHub Pages             | './'        | './'      | './assets/a.jpg'             |
+ *   | npm run preview          | './'        | './'      | './assets/a.jpg'             |
  *
  * Usage:
  *   import { asset } from '@/utils/assetPath';
  *   <img src={asset('/assets/images/foo.jpg')} />
  *
- * @param {string} path - Absolute path from the public root, starting with '/'.
- * @returns {string} - Path correctly prefixed with BASE_URL.
+ * @param {string} path - Absolute-from-public-root path, starting with '/'.
+ * @returns {string} - Correctly prefixed path for the current environment.
  */
 export function asset(path) {
-  // import.meta.env.BASE_URL is always set by Vite (defaults to '/' in dev)
-  const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // strip trailing slash
-  return `${base}${path}`;
+  const base = import.meta.env.BASE_URL; // e.g. '/' in dev, './' in built dist
+  // base ends with '/'; path starts with '/' — join cleanly to avoid double slashes
+  return `${base.replace(/\/$/, '')}${path}`;
 }
+
