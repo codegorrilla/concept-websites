@@ -4,48 +4,6 @@ import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
 import './HarvestSection.css';
 
-const PRODUCTS = [
-  {
-    id: 'assam',
-    title: 'Assam Golden Buds',
-    price: '₹850',
-    pouchColor: '#1c120c', // Dark rich cocoa/charcoal
-    pouchText: '#C9922A',  // Brand Gold
-    details: {
-      subtitle: '100% ORGANIC CTC',
-      notes: 'MALT · HONEY · COCOA',
-      origin: 'SINGLE ESTATE',
-      weight: '100G (3.5 OZ)'
-    }
-  },
-  {
-    id: 'darjeeling',
-    title: 'Darjeeling Muscatel',
-    price: '₹1,200',
-    pouchColor: '#c4d2d4', // Amaya-style dusty teal
-    pouchText: '#0D0906',  // Deep black
-    details: {
-      subtitle: 'EXQUISITE FIRST FLUSH',
-      notes: 'FLORAL · MUSCATEL · FRESH GRASS',
-      origin: 'SINGLE ESTATE',
-      weight: '75G (2.6 OZ)'
-    }
-  },
-  {
-    id: 'nilgiri',
-    title: 'Nilgiri Frost Tea',
-    price: '₹650',
-    pouchColor: '#2b4233', // Deep forest green
-    pouchText: '#E8DDD0',  // Warm cream
-    details: {
-      subtitle: 'BRISK WINTER FLUSH',
-      notes: 'BRISK · CITRUS · EUCALYPTUS',
-      origin: 'SINGLE ESTATE',
-      weight: '100G (3.5 OZ)'
-    }
-  }
-];
-
 export default function HarvestSection() {
   const sectionRef = useRef(null);
 
@@ -71,7 +29,7 @@ export default function HarvestSection() {
     // Scrub timeline — AGENTS.md §5 ACT 3
     const leafTl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.harvest-inner',
+        trigger: sectionRef.current,
         start: 'top center', end: 'bottom center', scrub: 2,
       },
     });
@@ -93,23 +51,9 @@ export default function HarvestSection() {
     gsap.to('.harvest-hand-image', {
       yPercent: -8, ease: 'none',
       scrollTrigger: {
-        trigger: '.harvest-inner',
+        trigger: sectionRef.current,
         start: 'top bottom', end: 'bottom top', scrub: 2,
       },
-    });
-
-    // Product cards stagger reveal (triggered when the gallery row comes into view)
-    gsap.from('.product-card', {
-      opacity: 0,
-      y: 60,
-      stagger: 0.15,
-      duration: 1.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.product-gallery',
-        start: 'top 85%',
-        toggleActions: 'play none none reverse',
-      }
     });
 
     return () => split?.revert();
@@ -164,65 +108,6 @@ export default function HarvestSection() {
               <cite className="caption">— The Indra estate tradition</cite>
             </blockquote>
           </div>
-        </div>
-      </div>
-
-      {/* Product Gallery row (Stripe from Cup Section) */}
-      <div className="harvest-gallery-row">
-        <h3 className="harvest-gallery-title font-heading">Our Sourced Teas</h3>
-        <div className="product-gallery" role="region" aria-label="Tea bag products">
-          {PRODUCTS.map((product) => (
-            <div key={product.id} className="product-card">
-              {/* Element 1: Title */}
-              <h4 className="product-title font-display">{product.title}</h4>
-
-              {/* Element 2: Packaging Image */}
-              <div className="product-packaging-wrapper">
-                <div className="pouch-glow" style={{ '--glow-color': product.pouchColor }} />
-                <div className="tea-pouch" style={{ '--pouch-bg': product.pouchColor, '--pouch-text': product.pouchText }}>
-                  <div className="pouch-gloss" />
-                  
-                  {/* Top Seal Area with notches */}
-                  <div className="pouch-seal">
-                    <div className="pouch-notch notch-left" />
-                    <div className="pouch-seal-pattern" />
-                    <div className="pouch-notch notch-right" />
-                  </div>
-                  <div className="pouch-zipper" />
-
-                  {/* Brand Branding */}
-                  <div className="pouch-brand">
-                    <span className="pouch-brand-main">INDRA</span>
-                    <span className="pouch-brand-sub">LEAFS &amp; FRAGRANCES</span>
-                  </div>
-
-                  {/* Bottom Amaya-style info box */}
-                  <div className="pouch-info-box">
-                    <div className="pouch-info-row row-1">
-                      <div className="pouch-info-title">{product.title.toUpperCase()}</div>
-                      <div className="pouch-info-badge">PREMIUM</div>
-                    </div>
-                    <div className="pouch-info-row row-2">
-                      <div className="pouch-info-notes-label">TASTING NOTES</div>
-                      <div className="pouch-info-notes">{product.details.notes}</div>
-                    </div>
-                    <div className="pouch-info-row row-3">
-                      <div className="pouch-info-origin">{product.details.origin}</div>
-                      <div className="pouch-info-weight">{product.details.weight}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Element 3: Price Tag */}
-              <div className="product-price">{product.price}</div>
-
-              {/* Element 4: Buy Button */}
-              <button className="product-buy-btn font-body">
-                Add to Cart
-              </button>
-            </div>
-          ))}
         </div>
       </div>
     </section>

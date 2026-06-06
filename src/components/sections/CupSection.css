@@ -58,6 +58,7 @@
   gap: 4.5rem;
   width: 100%;
   justify-items: center;
+  align-items: end; /* Align all card bottoms to the same baseline */
   perspective: 1000px; /* Enable 3D hover effects */
 }
 
@@ -86,11 +87,14 @@
 /* Element 2: Packaging Image wrapper & pouch design */
 .product-packaging-wrapper {
   position: relative;
-  width: 220px;
-  height: 330px;
+  width: 260px;
+  height: 420px;
   margin-bottom: 2.2rem;
   transform-style: preserve-3d;
   transition: transform 0.6s var(--ease-out);
+  display: flex;
+  align-items: flex-end; /* Images sit at the bottom — same base across all cards */
+  justify-content: center;
 }
 
 /* Hover effects */
@@ -123,203 +127,23 @@
   z-index: 1;
 }
 
-/* Standing Tea Pouch Mockup (Amaya-style structure) */
-.tea-pouch {
-  position: relative;
+/* 3D Product Pouch Mockup Styling */
+.product-pouch-image {
   width: 100%;
-  height: 100%;
-  background-color: var(--pouch-bg);
-  border-radius: 10px 10px 22px 22px;
-  box-shadow: 
-    0 20px 45px rgba(0, 0, 0, 0.65), 
-    0 2px 5px rgba(0, 0, 0, 0.3),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  padding: 1.6rem;
-  overflow: hidden;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.55));
+  position: relative;
   z-index: 2;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Realistic 3D Cylinder Shading Overlay */
-.pouch-gloss {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, 
-    rgba(0, 0, 0, 0.28) 0%, 
-    rgba(255, 255, 255, 0.05) 25%, 
-    rgba(255, 255, 255, 0.14) 48%, 
-    rgba(255, 255, 255, 0.05) 72%, 
-    rgba(0, 0, 0, 0.35) 100%
-  );
   pointer-events: none;
-  z-index: 5;
+  transition: filter 0.6s var(--ease-out);
+  display: block;
 }
 
-/* Top Heat Seal Crease & Tear Notches */
-.pouch-seal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 16px;
-  background: rgba(0, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.pouch-seal-pattern {
-  flex-grow: 1;
-  height: 100%;
-  background-image: repeating-linear-gradient(90deg, 
-    rgba(0, 0, 0, 0.18), 
-    rgba(0, 0, 0, 0.18) 1px, 
-    transparent 1px, 
-    transparent 4px
-  );
-}
-
-.pouch-notch {
-  width: 5px;
-  height: 6px;
-  background-color: var(--brand-black);
-  opacity: 0.65;
-  z-index: 12;
-}
-
-.notch-left {
-  border-radius: 0 4px 4px 0;
-  margin-left: -1px;
-}
-
-.notch-right {
-  border-radius: 4px 0 0 4px;
-  margin-right: -1px;
-}
-
-/* Zip lock line */
-.pouch-zipper {
-  position: absolute;
-  top: 24px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: rgba(0, 0, 0, 0.22);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  z-index: 10;
-}
-
-/* Branding Logo */
-.pouch-brand {
-  margin-top: 2.8rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--pouch-text);
-  z-index: 10;
-  text-align: center;
-}
-
-.pouch-brand-main {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  line-height: 1;
-}
-
-.pouch-brand-sub {
-  font-family: var(--font-body);
-  font-size: 0.45rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
-  margin-top: 0.15rem;
-  opacity: 0.8;
-}
-
-/* Bottom Metadata Box (Amaya-inspired grid box) */
-.pouch-info-box {
-  margin-top: auto;
-  border: 1px solid var(--pouch-text);
-  padding: 0.7rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  z-index: 10;
-  color: var(--pouch-text);
-  background: rgba(0, 0, 0, 0.08);
-}
-
-.pouch-info-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-body);
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.18);
-  padding-bottom: 0.3rem;
-  color: inherit;
-}
-
-/* If parent text color is dark, make borders look appropriate */
-.tea-pouch[style*="#0D0906"] .pouch-info-row {
-  border-bottom: 1px dashed rgba(13, 9, 6, 0.15);
-}
-
-.tea-pouch[style*="#E8DDD0"] .pouch-info-row {
-  border-bottom: 1px dashed rgba(232, 221, 208, 0.2);
-}
-
-.tea-pouch[style*="#C9922A"] .pouch-info-row {
-  border-bottom: 1px dashed rgba(201, 146, 42, 0.2);
-}
-
-.pouch-info-row:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.pouch-info-title {
-  font-weight: 700;
-  font-size: 0.52rem;
-  letter-spacing: 0.05em;
-}
-
-.pouch-info-badge {
-  font-size: 0.42rem;
-  font-weight: 600;
-  border: 1px solid var(--pouch-text);
-  padding: 0.04rem 0.22rem;
-  border-radius: 2px;
-  letter-spacing: 0.05em;
-}
-
-.pouch-info-notes-label {
-  font-size: 0.4rem;
-  opacity: 0.75;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-}
-
-.pouch-info-notes {
-  font-size: 0.45rem;
-  font-weight: 600;
-  text-align: right;
-  letter-spacing: 0.02em;
-  max-width: 140px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.pouch-info-origin,
-.pouch-info-weight {
-  font-size: 0.45rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+.product-card:hover .product-pouch-image {
+  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.7));
 }
 
 /* Element 3: Price Tag */

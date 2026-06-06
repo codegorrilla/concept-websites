@@ -50,6 +50,8 @@ export default function Navbar() {
           <li><button onClick={() => scrollTo('garden-section')}>Garden</button></li>
           <li><button onClick={() => scrollTo('harvest-section')}>Harvest</button></li>
           <li><button onClick={() => scrollTo('process-section')}>Process</button></li>
+          <li><button onClick={() => scrollTo('cup-section')}>Sourced Teas</button></li>
+          <li><button onClick={() => scrollTo('lounge-section')}>Tea Lounge</button></li>
           <li>
             <button className="nav-cta" onClick={() => scrollTo('cta-section')}>
               Shop Teas
@@ -74,6 +76,8 @@ export default function Navbar() {
           <li><button onClick={() => scrollTo('garden-section')}>Garden</button></li>
           <li><button onClick={() => scrollTo('harvest-section')}>Harvest</button></li>
           <li><button onClick={() => scrollTo('process-section')}>Process</button></li>
+          <li><button onClick={() => scrollTo('cup-section')}>Sourced Teas</button></li>
+          <li><button onClick={() => scrollTo('lounge-section')}>Tea Lounge</button></li>
           <li><button onClick={() => scrollTo('cta-section')}>Shop Teas</button></li>
         </ul>
       </div>

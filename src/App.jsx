@@ -6,6 +6,8 @@ import OriginSection from './components/sections/OriginSection';
 import GardenSection from './components/sections/GardenSection';
 import HarvestSection from './components/sections/HarvestSection';
 import ProcessSection from './components/sections/ProcessSection';
+import CupSection from './components/sections/CupSection';
+import TeaLoungeSection from './components/sections/TeaLoungeSection';
 import CtaSection from './components/sections/CtaSection';
 import './App.css';
 
@@ -21,9 +23,11 @@ export default function App() {
         <HeroSection />    {/* ACT 0 — 0.00–0.10 */}
         <OriginSection />  {/* ACT 1 — 0.10–0.25 */}
         <GardenSection />  {/* ACT 2 — 0.25–0.40 */}
-        <HarvestSection /> {/* ACT 3 — 0.40–0.52 */}
-        <ProcessSection /> {/* ACT 4 — 0.52–0.68 */}
-        <CtaSection />     {/* ACT 5 — 0.68–1.00 */}
+        <HarvestSection /> {/* ACT 3 — 0.40–0.55 */}
+        <ProcessSection /> {/* ACT 4 — 0.55–0.75 */}
+        <CupSection />        {/* ACT 5+6 — Sourced Teas */}
+        <TeaLoungeSection /> {/* ACT 7 — Tea Lounge */}
+        <CtaSection />        {/* ACT 8 — Begin / CTA */}
       </main>
     </SmoothScrollLayout>
   );

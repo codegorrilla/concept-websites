@@ -17,6 +17,7 @@ const STEPS = [
 
 export default function ProcessSection() {
   const sectionRef = useRef(null);
+  const vizColRef = useRef(null);
 
   useGSAP(() => {
     // Heading reveal
@@ -41,7 +42,7 @@ export default function ProcessSection() {
     gsap.from('.process-connector-line', {
       drawSVG: '0%',
       scrollTrigger: {
-        trigger: '.process-steps', start: '20% center', end: '80% center', scrub: 1,
+        trigger: '.process-steps', start: '10% center', end: '90% center', scrub: 1.5,
       },
       ease: 'none',
     });
@@ -55,12 +56,22 @@ export default function ProcessSection() {
       },
     });
 
-    // ScrollTrigger listeners for morphing SVG targets and active highlight states
+    // ─── PIN the right visualizer column ───────────────────────────────────
+    // Pin the visualizer card for the full scroll duration of the steps column.
+    ScrollTrigger.create({
+      trigger: '.process-steps-col',
+      start: 'top 20%',
+      end: 'bottom 80%',
+      pin: vizColRef.current,
+      pinSpacing: false,
+    });
+
+    // ─── Per-step morph triggers ────────────────────────────────────────────
     STEPS.forEach((step) => {
       ScrollTrigger.create({
         trigger: `#step-${step.id}`,
-        start: 'top center+=150',
-        end: 'bottom center-=150',
+        start: 'top center+=100',
+        end: 'bottom center-=100',
         onToggle: (self) => {
           if (self.isActive) {
             // Morph the shape to step path and fill color
@@ -169,8 +180,8 @@ export default function ProcessSection() {
             </div>
           </div>
 
-          {/* Right Column: Sticky Shape Morphing Visualizer */}
-          <div className="process-visualizer-col" aria-hidden="true">
+          {/* Right Column: GSAP-Pinned Shape Morphing Visualizer */}
+          <div ref={vizColRef} className="process-visualizer-col" aria-hidden="true">
             <div className="visualizer-card">
               <div className="visualizer-glow" />
               <div className="visualizer-glass-gloss" />

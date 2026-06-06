@@ -11,6 +11,7 @@ const PRODUCTS = [
     price: '₹850',
     pouchColor: '#1c120c', // Dark rich cocoa/charcoal
     pouchText: '#C9922A',  // Brand Gold
+    image: '/assets/images/assam_tea_bag_v3.png',
     details: {
       subtitle: '100% ORGANIC CTC',
       notes: 'MALT · HONEY · COCOA',
@@ -24,6 +25,7 @@ const PRODUCTS = [
     price: '₹1,200',
     pouchColor: '#c4d2d4', // Amaya-style dusty teal
     pouchText: '#0D0906',  // Deep black
+    image: '/assets/images/darjeeling_tea_bag_v3.png',
     details: {
       subtitle: 'EXQUISITE FIRST FLUSH',
       notes: 'FLORAL · MUSCATEL · FRESH GRASS',
@@ -37,6 +39,7 @@ const PRODUCTS = [
     price: '₹650',
     pouchColor: '#2b4233', // Deep forest green
     pouchText: '#E8DDD0',  // Warm cream
+    image: '/assets/images/nilgiri_tea_bag_v3.png',
     details: {
       subtitle: 'BRISK WINTER FLUSH',
       notes: 'BRISK · CITRUS · EUCALYPTUS',
@@ -107,7 +110,7 @@ export default function CupSection() {
     >
       <div className="cup-gallery-container">
         <div className="cup-header">
-          <div className="section-label cup-act-label">Act VII · The Cup</div>
+          <div className="section-label cup-act-label">Act VI · Our Sourced Teas</div>
           <h2 className="cup-heading heading-secondary">
             One cup.<br />
             <span className="italic-accent">A thousand years</span><br />
@@ -124,39 +127,11 @@ export default function CupSection() {
               {/* Element 2: Packaging Image */}
               <div className="product-packaging-wrapper">
                 <div className="pouch-glow" style={{ '--glow-color': product.pouchColor }} />
-                <div className="tea-pouch" style={{ '--pouch-bg': product.pouchColor, '--pouch-text': product.pouchText }}>
-                  <div className="pouch-gloss" />
-                  
-                  {/* Top Seal Area with notches */}
-                  <div className="pouch-seal">
-                    <div className="pouch-notch notch-left" />
-                    <div className="pouch-seal-pattern" />
-                    <div className="pouch-notch notch-right" />
-                  </div>
-                  <div className="pouch-zipper" />
-
-                  {/* Brand Branding */}
-                  <div className="pouch-brand">
-                    <span className="pouch-brand-main">INDRA</span>
-                    <span className="pouch-brand-sub">LEAFS &amp; FRAGRANCES</span>
-                  </div>
-
-                  {/* Bottom Amaya-style info box */}
-                  <div className="pouch-info-box">
-                    <div className="pouch-info-row row-1">
-                      <div className="pouch-info-title">{product.title.toUpperCase()}</div>
-                      <div className="pouch-info-badge">PREMIUM</div>
-                    </div>
-                    <div className="pouch-info-row row-2">
-                      <div className="pouch-info-notes-label">TASTING NOTES</div>
-                      <div className="pouch-info-notes">{product.details.notes}</div>
-                    </div>
-                    <div className="pouch-info-row row-3">
-                      <div className="pouch-info-origin">{product.details.origin}</div>
-                      <div className="pouch-info-weight">{product.details.weight}</div>
-                    </div>
-                  </div>
-                </div>
+                <img
+                  src={product.image}
+                  alt={`${product.title} 3D package mockup`}
+                  className="product-pouch-image"
+                />
               </div>
 
               {/* Element 3: Price Tag */}

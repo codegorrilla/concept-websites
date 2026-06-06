@@ -1,0 +1,481 @@
+/* ─── Tea Lounge Section ─────────────────────────────────────────────────── */
+/* ACT VII: A bright, warm, social-gathering promotional section              */
+
+.lounge-section {
+  position: relative;
+  background: #f5ede0; /* Warm cream — intentional BREAK from dark site theme */
+  color: var(--brand-earth);
+  overflow: hidden;
+}
+
+/* ─── HERO BAND ─────────────────────────────────────────────────────────── */
+.lounge-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.lounge-hero-img-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.lounge-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  will-change: transform;
+  filter: saturate(1.08) brightness(0.88);
+}
+
+.lounge-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(20, 10, 4, 0.92) 0%,
+    rgba(20, 10, 4, 0.55) 40%,
+    rgba(20, 10, 4, 0.1) 75%,
+    transparent 100%
+  );
+}
+
+.lounge-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 4rem 6rem;
+}
+
+.lounge-eyebrow {
+  color: var(--brand-gold);
+  margin-bottom: 1.4rem;
+  letter-spacing: 0.2em;
+}
+
+.lounge-headline {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6.5vw, 7rem);
+  line-height: 1.05;
+  color: var(--brand-mist);
+  font-weight: 400;
+  margin-bottom: 1.8rem;
+  letter-spacing: -0.01em;
+}
+
+.lounge-headline-accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--brand-gold);
+  font-weight: 400;
+}
+
+.lounge-sub {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: rgba(232, 221, 208, 0.8);
+  line-height: 1.8;
+  max-width: 560px;
+  margin-bottom: 3.5rem;
+}
+
+/* ─── Stats Row ─────────────────────────────────────────────────────────── */
+.lounge-stats {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.lounge-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.1em;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.lounge-stat-num {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--brand-gold);
+  line-height: 1;
+}
+
+.lounge-stat-unit {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--brand-gold);
+  line-height: 1;
+}
+
+.lounge-stat-label {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: rgba(232, 221, 208, 0.6);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+.lounge-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(201, 146, 42, 0.3);
+  flex-shrink: 0;
+}
+
+/* ─── FEATURE CARDS BAND ─────────────────────────────────────────────────── */
+.lounge-features-band {
+  background: #fffaf4;
+  padding: 6rem 4rem;
+  border-top: 1px solid rgba(201, 146, 42, 0.15);
+  border-bottom: 1px solid rgba(201, 146, 42, 0.15);
+}
+
+.lounge-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.lounge-feature-card {
+  background: #fff;
+  border: 1px solid rgba(201, 146, 42, 0.12);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(44, 26, 14, 0.07);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+  cursor: default;
+}
+
+.lounge-feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(44, 26, 14, 0.14);
+  border-color: rgba(201, 146, 42, 0.35);
+}
+
+.lounge-feature-icon {
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+  display: block;
+  line-height: 1;
+}
+
+.lounge-feature-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--brand-earth);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.01em;
+}
+
+.lounge-feature-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #5c3d26;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+/* ─── MENU + SNACK PANEL ─────────────────────────────────────────────────── */
+.lounge-menu-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 70vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 7rem 4rem;
+  gap: 6rem;
+  align-items: center;
+}
+
+.lounge-menu-label {
+  color: var(--brand-gold);
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+}
+
+.lounge-menu-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 400;
+  color: var(--brand-earth);
+  margin-bottom: 3rem;
+  line-height: 1.25;
+}
+
+.lounge-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba(44, 26, 14, 0.12);
+}
+
+.lounge-menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(44, 26, 14, 0.08);
+  transition: background 0.3s ease;
+  gap: 1rem;
+}
+
+.lounge-menu-item:hover {
+  padding-left: 0.5rem;
+}
+
+.lounge-menu-item-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.lounge-menu-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--brand-earth);
+  letter-spacing: 0.01em;
+  transition: color 0.3s ease;
+}
+
+.lounge-menu-item:hover .lounge-menu-name {
+  color: #b5541c;
+}
+
+.lounge-menu-note {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #8a6040;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.lounge-menu-price {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--brand-gold);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.lounge-menu-note-footer {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #8a6040;
+  margin-top: 1.8rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Snack image */
+.lounge-snacks-img-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(44, 26, 14, 0.2);
+  aspect-ratio: 4/5;
+}
+
+.lounge-snacks-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.lounge-snacks-img-wrap:hover .lounge-snacks-img {
+  transform: scale(1.04);
+}
+
+.lounge-snacks-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(20, 10, 4, 0.75) 0%, transparent 100%);
+  padding: 2rem 1.5rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(232, 221, 208, 0.85);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+/* ─── RESERVATION CTA ───────────────────────────────────────────────────── */
+.lounge-cta {
+  position: relative;
+  background: var(--brand-earth);
+  padding: 8rem 4rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.lounge-cta-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201, 146, 42, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.lounge-cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.lounge-cta-inner .section-label {
+  color: var(--brand-gold);
+  letter-spacing: 0.25em;
+  margin-bottom: 1.5rem;
+}
+
+.lounge-cta-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  color: var(--brand-mist);
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+
+.lounge-cta-sub {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--brand-gold);
+  display: block;
+  font-size: 0.75em;
+}
+
+.lounge-cta-desc {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: rgba(232, 221, 208, 0.7);
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.lounge-cta-buttons {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.lounge-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.35s var(--ease-out);
+}
+
+.lounge-btn-primary {
+  background: var(--brand-gold);
+  color: var(--brand-black);
+  border: 1px solid var(--brand-gold);
+  box-shadow: 0 10px 30px rgba(201, 146, 42, 0.3);
+}
+
+.lounge-btn-primary:hover {
+  background: #d9a43a;
+  box-shadow: 0 16px 40px rgba(201, 146, 42, 0.45);
+}
+
+.lounge-btn-secondary {
+  background: transparent;
+  color: var(--brand-mist);
+  border: 1px solid rgba(232, 221, 208, 0.3);
+}
+
+.lounge-btn-secondary:hover {
+  background: rgba(232, 221, 208, 0.08);
+  border-color: rgba(232, 221, 208, 0.6);
+}
+
+.lounge-cta-address {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: rgba(232, 221, 208, 0.5);
+  line-height: 1.6;
+}
+
+.lounge-cta-address strong {
+  color: rgba(232, 221, 208, 0.75);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .lounge-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lounge-menu-panel {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    padding: 5rem 3rem;
+  }
+
+  .lounge-snacks-img-wrap {
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (max-width: 768px) {
+  .lounge-hero-content {
+    padding: 0 2rem 4rem;
+  }
+
+  .lounge-features-band {
+    padding: 4rem 2rem;
+  }
+
+  .lounge-features {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .lounge-stats {
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .lounge-stat-divider {
+    display: none;
+  }
+
+  .lounge-cta {
+    padding: 5rem 2rem;
+  }
+
+  .lounge-menu-panel {
+    padding: 4rem 2rem;
+  }
+}
