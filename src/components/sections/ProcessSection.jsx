@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { asset } from '../../utils/assetPath';
 import './ProcessSection.css';
 
 const STEPS = [
@@ -132,7 +133,7 @@ export default function ProcessSection() {
 
       <div className="process-factory-bg">
         <img
-          src="/assets/images/process_factory.jpg"
+          src={asset("/assets/images/process_factory.jpg")}
           alt="Artisan tea withering factory"
           className="process-factory-img"
         />

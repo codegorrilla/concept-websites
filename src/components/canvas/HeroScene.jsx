@@ -2,6 +2,7 @@ import { useRef, useMemo, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Environment, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
+import { asset } from '../../utils/assetPath';
 
 // ── World-space constants (keep in sync with geometry) ──────────────────────
 const THREAD_PIVOT_Y  = 4.80;   // y where thread is pinned (top of scene)
@@ -219,7 +220,7 @@ function TeaBag({ mouseRef, scrollProgress, bagAngleRef }) {
 function GlassCup({ scrollProgress, cupY }) {
   const liquidRef  = useRef();
 
-  const texture = useTexture('/assets/images/cup_image.png');
+  const texture = useTexture(asset('/assets/images/cup_image.png'));
 
   useFrame(() => {
     if (!liquidRef.current) return;
@@ -487,4 +488,4 @@ export default function HeroScene({ scrollProgress }) {
   );
 }
 
-useTexture.preload('/assets/images/cup_image.png');
+useTexture.preload(asset('/assets/images/cup_image.png'));

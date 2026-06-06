@@ -6,6 +6,10 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
 
+  // Base path for GitHub Pages — site is served at /tea-concept-2/, not /
+  // Without this, all /assets/... paths 404 after deployment.
+  base: '/tea-concept-2/',
+
   resolve: {
     // Force all packages to share a single React instance.
     // Required when using @react-three/fiber (R3F bundles its own renderer).

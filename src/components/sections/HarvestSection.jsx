@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
+import { asset } from '../../utils/assetPath';
 import './HarvestSection.css';
 
 export default function HarvestSection() {
@@ -70,7 +71,7 @@ export default function HarvestSection() {
         <div className="harvest-image-col">
           <div className="harvest-image-wrapper">
             <img
-              src="/assets/images/harvest_hands.jpg"
+              src={asset("/assets/images/harvest_hands.jpg")}
               alt="Hands carefully plucking two leaves and a bud from a tea plant"
               className="harvest-hand-image"
             />

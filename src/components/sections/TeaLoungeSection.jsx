@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
+import { asset } from '../../utils/assetPath';
 import './TeaLoungeSection.css';
 
 const LOUNGE_FEATURES = [
@@ -129,7 +130,7 @@ export default function TeaLoungeSection() {
       <div className="lounge-hero">
         <div className="lounge-hero-img-wrap" aria-hidden="true">
           <img
-            src="/assets/images/tea_lounge.jpg"
+            src={asset("/assets/images/tea_lounge.jpg")}
             alt="Indra's Tea Lounge interior — warm, vibrant, and inviting"
             className="lounge-hero-img"
           />
@@ -206,7 +207,7 @@ export default function TeaLoungeSection() {
 
         <div className="lounge-snacks-img-wrap" aria-hidden="true">
           <img
-            src="/assets/images/tea_lounge_snacks.jpg"
+            src={asset("/assets/images/tea_lounge_snacks.jpg")}
             alt="Artisan Indian tea time spread with samosas, pakoras, and cookies"
             className="lounge-snacks-img"
           />

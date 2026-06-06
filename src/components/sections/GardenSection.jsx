@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
+import { asset } from '../../utils/assetPath';
 import './GardenSection.css';
 
 const STATS = [
@@ -89,7 +90,7 @@ export default function GardenSection() {
       className="garden-section"
       aria-label="Garden — Tea fields of India"
     >
-      <div className="garden-bg" style={{ backgroundImage: 'url(/assets/images/garden_aerial.jpg)' }} aria-hidden="true" />
+      <div className="garden-bg" style={{ backgroundImage: `url(${asset('/assets/images/garden_aerial.jpg')})` }} aria-hidden="true" />
       <div className="garden-overlay" aria-hidden="true" />
 
       {[...Array(8)].map((_, i) => (

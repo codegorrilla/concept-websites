@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { asset } from "../../utils/assetPath";
 import "./HeroSection.css";
 
 // ── Leaf Particle Constants & Helper ──
@@ -43,7 +44,7 @@ const renderLeafParticle = (i) => {
     const size = 30 + ((i * 47) % 15); // stable size between 30px and 45px
     return (
       <img
-        src="/assets/images/Leaf-1.png"
+        src={asset("/assets/images/Leaf-1.png")}
         alt="Premium tea leaf"
         style={{
           width: `${size}px`,
@@ -325,7 +326,7 @@ export default function HeroSection() {
       {/* Background photo */}
       <div
         className="hero-bg"
-        style={{ backgroundImage: "url(/assets/images/hero_tea_estate.jpg)" }}
+        style={{ backgroundImage: `url(${asset("/assets/images/hero_tea_estate.jpg")})` }}
         aria-hidden="true"
       />
       <div className="hero-mist-bottom" aria-hidden="true" />
@@ -336,7 +337,7 @@ export default function HeroSection() {
       <div ref={cupRef} className="hero-cup-container" aria-hidden="true">
         <div ref={cupScrollRef} className="hero-cup-wrapper">
           <img
-            src="/assets/images/cup_image.png"
+            src={asset("/assets/images/cup_image.png")}
             alt="Premium wide glass teacup"
             className="hero-cup-image"
           />

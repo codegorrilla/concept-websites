@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
+import { asset } from '../../utils/assetPath';
 import './CupSection.css';
 
 const PRODUCTS = [
@@ -11,7 +12,7 @@ const PRODUCTS = [
     price: '₹850',
     pouchColor: '#1c120c', // Dark rich cocoa/charcoal
     pouchText: '#C9922A',  // Brand Gold
-    image: '/assets/images/assam_tea_bag_v3.png',
+    image: asset('/assets/images/assam_tea_bag_v3.png'),
     details: {
       subtitle: '100% ORGANIC CTC',
       notes: 'MALT · HONEY · COCOA',
@@ -25,7 +26,7 @@ const PRODUCTS = [
     price: '₹1,200',
     pouchColor: '#c4d2d4', // Amaya-style dusty teal
     pouchText: '#0D0906',  // Deep black
-    image: '/assets/images/darjeeling_tea_bag_v3.png',
+    image: asset('/assets/images/darjeeling_tea_bag_v3.png'),
     details: {
       subtitle: 'EXQUISITE FIRST FLUSH',
       notes: 'FLORAL · MUSCATEL · FRESH GRASS',
@@ -39,7 +40,7 @@ const PRODUCTS = [
     price: '₹650',
     pouchColor: '#2b4233', // Deep forest green
     pouchText: '#E8DDD0',  // Warm cream
-    image: '/assets/images/nilgiri_tea_bag_v3.png',
+    image: asset('/assets/images/nilgiri_tea_bag_v3.png'),
     details: {
       subtitle: 'BRISK WINTER FLUSH',
       notes: 'BRISK · CITRUS · EUCALYPTUS',
